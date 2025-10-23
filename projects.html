@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Projects</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="/">Colin Zhao</a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/ds.html">Data Science</a></li>
+        <li><a href="/swe.html">SWE</a></li>
+        <li><a class="active" href="/projects.html">Projects</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="page-header">
+      <h1>Projects</h1>
+      <p class="lede">A few things I’ve built or am currently working on.</p>
+      <nav class="project-filter" style="display:flex; gap:.5rem; margin-top:.6rem; flex-wrap:wrap">
+        <a class="pill" href="#all">All</a>
+        <a class="pill" href="#ds">Data Science</a>
+        <a class="pill" href="#swe">SWE</a>
+      </nav>
+    </section>
+
+    <section class="grid">
+      <!-- Project card -->
+      <article class="card" data-tags="swe,cv,ml">
+        <h3>
+          <a href="https://github.com/colinzhao0/gaze-tracker" target="_blank" rel="noopener">Gaze Tracker</a>
+        </h3>
+        <p>Real-time eye-gaze estimation with OpenCV + MediaPipe; latency-aware smoothing and calibration UI.</p>
+        <p class="meta">
+          <span class="tag">Python</span>
+          <span class="tag">OpenCV</span>
+        </p>
+      </article>
+
+      <article class="card" data-tags="swe,web,fullstack">
+        <h3><a href="https://maurice-hazel.vercel.app/sign-in" target="_blank" rel="noopener">Nutrient Logger</a></h3>
+        <p>React frontend with Supabase backend for tracking daily nutrient intake.</p>
+        <p class="meta">
+          <span class="tag">React</span>
+          <span class="tag">JS</span>
+        </p>
+      </article>
+
+      <article class="card" data-tags="swe,web,fullstack">
+        <h3><a href="https://collegize.ai" target="_blank" rel="noopener">Collegize.ai</a></h3>
+        <p>Full-stack college application platform using Next.js and Supabase with Gemini integration</p>
+        <p class="meta">
+          <span class="tag">Next.js</span>
+          <span class="tag">Supabase</span>
+        </p>
+      </article>
+
+      <article class="card" data-tags="ds,ml,cv">
+        <h3><a href="https://github.com/colinzhao0/Face-Shape-Classifier" target="_blank" rel="noopener">Face Shape Classifier</a></h3>
+        <p>Classifies face shapes from images using machine learning.</p>
+        <p class="meta">
+          <span class="tag">Python</span>
+          <span class="tag">CV</span>
+        </p>
+      </article>
+
+      <article class="card" data-tags="ds,ml">
+        <h3><a href="https://github.com/colinzhao0/NYC-Airbnb-Price-Predictor" target="_blank" rel="noopener">NYC Airbnb Price Predictor</a></h3>
+        <p>Predicts NYC Airbnb listing prices with regression models and feature engineering.</p>
+        <p class="meta">
+          <span class="tag">Python</span>
+          <span class="tag">ML</span>
+        </p>
+      </article>
+
+      <!-- Add more <article class="card">…</article> as needed -->
+    </section>
+  </main>
+
+
+  <script>
+     const y = document.getElementById("year");
+     if (y) y.textContent = new Date().getFullYear();
+
+    // Simple hash-based filter: #all | #ds | #swe
+    function applyFilter(tag) {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        const tags = (card.dataset.tags || '').split(',');
+        const show = (tag === 'all') || tags.includes(tag);
+        card.style.display = show ? '' : 'none';
+      });
+
+      // Update active pills visually
+      document.querySelectorAll('.project-filter .pill').forEach(p => {
+        const href = p.getAttribute('href');
+        const h = href && href.startsWith('#') ? href.slice(1) : 'all';
+        if (h === tag) p.classList.add('active');
+        else p.classList.remove('active');
+      });
+    }
+
+    function syncFromHash() {
+      const hash = (location.hash || '#all').slice(1);
+      const tag = ['all','ds','swe'].includes(hash) ? hash : 'all';
+      applyFilter(tag);
+    }
+
+    window.addEventListener('hashchange', syncFromHash);
+    // initial
+    syncFromHash();
+  </script>
+</body>
+</html>

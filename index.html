@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About Me</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a class="brand" href="/">Colin Zhao</a>
+      <ul class="nav-links">
+        <li><a class="active" href="/">Home</a></li>
+        <li><a href="/ds.html">Data Science</a></li>
+        <li><a href="/swe.html">SWE</a></li>
+        <li><a href="/projects.html">Projects</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container hero">
+    <div class="hero-text">
+      <h1>Hi, I'm <span class="accent">Colin</span>.</h1>
+      <p class="lede">
+        Sophomore at Penn, studying Computer Science and Economics.
+        Coder and problem-solver.
+      </p>
+
+      <p>
+        Summer 2025, I worked at <a href="https://antalpha.com/about-us" target="_blank" rel="noopener">Antalpha</a>, deploying GPU clusters to run AI models.
+        I'm also a founding engineer at <a href="https://collegize.ai" target="_blank" rel="noopener">Collegize</a>, building LLM-powered tools for college applicants.
+      </p>
+
+      <p>
+        At Penn, I'm involved with <a href="https://www.pennaerial.com/" target="_blank" rel="noopener">Penn Aerial Robotics</a> as a Software Engineer, working on various computer vision and control pipelines, 
+        and a researcher at <a href="https://www.pennmedicine.org/departments-and-centers/department-of-radiology" target="_blank" rel="noopener">Penn Radiology</a>, developing models to analyze medical data under <a href="https://www.med.upenn.edu/apps/faculty/index.php/g334/p18472" target="_blank" rel="noopener">Tessa Cook</a>.
+        I also do volunteer data science work for the <a href="https://www.barnesfoundation.org/" target="_blank" rel="noopener">Barnes Foundation</a>, helping with their GIS and mapping projects.
+      </p>
+
+      <p>
+        When I'm not coding, I enjoy taekwondo, weightlifting, playing video games, and cooking.
+      </p>
+
+      <p class="links">
+        <a class="pill" href="/ds.html">Data Science</a>
+        <a class="pill" href="/swe.html">SWE</a>
+        <a class="pill" href="https://www.linkedin.com/in/zhao-colin/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="pill" href="mailto:colinz@sas.upenn.edu">Email</a>
+      </p>
+    </div>
+
+  </main>
+
+
+  <script>
+    const y = document.getElementById("year");
+    if (y) y.textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
